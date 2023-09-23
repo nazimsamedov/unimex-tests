@@ -1,0 +1,44 @@
+body {
+  width: 100vw;
+}
+
+.main__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+.main__search-wrap {
+  width: 50%;
+  margin-bottom: 20px;
+}
+
+.main__search-wrap input {
+  width: 100%;
+  padding: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid grey;
+}
+
+tr :nth-child(-n+2) {
+  width: 10%;
+}
+
+tr :nth-last-child(-n+2) {
+  width: 40%;
+}
+
+th {
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+td {
+  padding: 5px;
+  border: 1px solid grey;
+}
