@@ -1,0 +1,39 @@
+
+// у вас выводится undefined, из-за var
+const arr = [10, 12, 15, 21];
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(function () {
+    console.log(arr[i] > 13 ? `Good: ${arr[i]}` : `Bad: ${arr[i]}`)
+  }, 3000)
+}
+
+// 1) можно заменить var на let
+const arr1 = [10, 12, 15, 21];
+for (let i = 0; i < arr1.length; i++) {
+  setTimeout(function () {
+    console.log(arr1[i] > 13 ? `Good: ${arr1[i]}` : `Bad: ${arr1[i]}`)
+  }, 3000)
+}
+
+// 2) разделить числа массива на четные/нечетные
+const arr2 = [10, 12, 15, 21];
+for (let i = 0; i < arr2.length; i++) {
+  setTimeout(function () {
+    console.log(arr2[i] % 2 ? `Good: ${arr2[i]}` : `Bad: ${arr2[i]}`)
+  }, 3000)
+}
+
+// 3) можно разделить сам массив на две части
+const arr3 = [10, 12, 15, 21];
+const badPart = arr3.slice(0, arr3.length / 2);
+const goodPart = arr3.slice(arr3.length / 2);
+
+setTimeout(function () {
+  badPart.forEach((el) => {
+    console.log('Bad: ' + el);
+  });
+  goodPart.forEach((el) => {
+    console.log('Good: ' + el);
+  });
+}, 3000)
+
