@@ -36,6 +36,7 @@
     body.textContent = 'body';
 
     mainSearchInput.addEventListener('input', () => {
+      mainSearchInput.value = mainSearchInput.value.toLowerCase();
       if (mainSearchInput.value && mainSearchInput.value.length > 2) {
         searchedArr = searchTableData(serverArr, mainSearchInput.value);
         renderTableData(searchTableData(serverArr, mainSearchInput.value));
@@ -51,36 +52,16 @@
     body.style.cursor = 'pointer';
 
     userId.addEventListener('click', () => {
-      if (searchedArr.length) {
-        sortTableData(searchedArr, userId, 'userId');
-      } else {
-        sortTableData(serverArr, userId, 'userId');
-      }
-      // sortTableData(serverArr, userId, 'userId');
+      searchedArr.length ? sortTableData(searchedArr, userId, 'userId') : sortTableData(serverArr, userId, 'userId')
     });
     id.addEventListener('click', () => {
-      if (searchedArr.length) {
-        sortTableData(searchedArr, id, 'id');
-      } else {
-        sortTableData(serverArr, id, 'id');
-      }
-      // sortTableData(serverArr, id, 'id');
+      searchedArr.length ? sortTableData(searchedArr, id, 'id') : sortTableData(serverArr, id, 'id')
     });
     title.addEventListener('click', () => {
-      if (searchedArr.length) {
-        sortTableData(searchedArr, title, 'title');
-      } else {
-        sortTableData(serverArr, title, 'title');
-      }
-      // sortTableData(serverArr, title, 'title');
+      searchedArr.length ? sortTableData(searchedArr, title, 'title') : sortTableData(serverArr, title, 'title')
     });
     body.addEventListener('click', () => {
-      if (searchedArr.length) {
-        sortTableData(searchedArr, body, 'body');
-      } else {
-        sortTableData(serverArr, body, 'body');
-      }
-      // sortTableData(serverArr, body, 'body');
+      searchedArr.length ? sortTableData(searchedArr, body, 'body') : sortTableData(serverArr, body, 'body')
     });
 
     mainSearchWrap.append(mainSearchInput);
