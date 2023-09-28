@@ -4,6 +4,7 @@
 
   const serverURL = 'https://jsonplaceholder.typicode.com/posts';
   let serverArr = [];
+  let searchedArr = [];
 
   function createMainLayout() {
     const main = document.createElement('main');
@@ -36,8 +37,10 @@
 
     mainSearchInput.addEventListener('input', () => {
       if (mainSearchInput.value && mainSearchInput.value.length > 2) {
+        searchedArr = searchTableData(serverArr, mainSearchInput.value);
         renderTableData(searchTableData(serverArr, mainSearchInput.value));
       } else {
+        searchedArr = [];
         renderTableData(serverArr);
       }
     });
@@ -48,16 +51,36 @@
     body.style.cursor = 'pointer';
 
     userId.addEventListener('click', () => {
-      sortTableData(serverArr, userId, 'userId');
+      if (searchedArr.length) {
+        sortTableData(searchedArr, userId, 'userId');
+      } else {
+        sortTableData(serverArr, userId, 'userId');
+      }
+      // sortTableData(serverArr, userId, 'userId');
     });
     id.addEventListener('click', () => {
-      sortTableData(serverArr, id, 'id');
+      if (searchedArr.length) {
+        sortTableData(searchedArr, id, 'id');
+      } else {
+        sortTableData(serverArr, id, 'id');
+      }
+      // sortTableData(serverArr, id, 'id');
     });
     title.addEventListener('click', () => {
-      sortTableData(serverArr, title, 'title');
+      if (searchedArr.length) {
+        sortTableData(searchedArr, title, 'title');
+      } else {
+        sortTableData(serverArr, title, 'title');
+      }
+      // sortTableData(serverArr, title, 'title');
     });
     body.addEventListener('click', () => {
-      sortTableData(serverArr, body, 'body');
+      if (searchedArr.length) {
+        sortTableData(searchedArr, body, 'body');
+      } else {
+        sortTableData(serverArr, body, 'body');
+      }
+      // sortTableData(serverArr, body, 'body');
     });
 
     mainSearchWrap.append(mainSearchInput);
